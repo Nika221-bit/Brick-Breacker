@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     Game: document.querySelector(".game")
     
   };
-
+  let styleroot = document.querySelector(':root')
   let gamewidth = elements.Game.getBoundingClientRect().width;
   let gameheight = elements.Game.getBoundingClientRect().height;
 
@@ -18,5 +18,11 @@ document.addEventListener('DOMContentLoaded', () => {
     elements.Game.addEventListener('mousemove', (e) => {
       console.log(e.offsetX, e.offsetY);
     });
+  }
+  function setStyleProperty(variable,value){
+    styleroot.style.setProperty(variable,value)
+  }
+  function getStyleProperty(variable){
+    return getComputedStyle(styleroot).getPropertyValue(variable)
   }
 });
