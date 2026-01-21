@@ -13,7 +13,8 @@ body{
 :root{
     --LeftDesk: 50%;
     --Desktop : 470px;
-
+    --Leftball:200px;
+    --Topball:200px;
 }
 
 .game{
@@ -50,7 +51,7 @@ body{
 .wall{
     width: 50px;
     height: 10px;
-    background-color: aqua;
+    background-color: hsl(300, 100%, 35%);
     position: relative;
     margin-right: 10px;
     margin-bottom: 10px;
@@ -58,4 +59,15 @@ body{
 
 .wall:nth-child(8n){
     margin-right: 0px;
+}
+
+.ball{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    pointer-events: none;
+    left: var(--Leftball);
+    top: var(--Topball) ;
+    background-color: yellow;
 }
