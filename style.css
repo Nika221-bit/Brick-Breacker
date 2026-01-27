@@ -71,3 +71,39 @@ body{
     top: var(--Topball) ;
     background-color: yellow;
 }
+
+.top-wall{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    border: 1px solid red;
+}
+
+.left-wall{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 100%;
+    border: 1px solid red;
+}
+
+.right-wall{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1px;
+    height: 100%;
+    border: 1px solid red;
+}
+
+.bottom-wall{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    border: 1px solid red;
+}
