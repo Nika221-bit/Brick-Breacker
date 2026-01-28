@@ -5,6 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
     desk: document.querySelector('.desk'),
     wallContainer: document.querySelector('.walls') ,
     ball:document.querySelector('.ball'),
+    topwall:document.querySelector('.top-wall'),
+    bottomwall: document.querySelector('.bottom-wall'),
+    leftwall: document.querySelector('.left-wall'),
+    rightwall: document.querySelector('.right-wall')
   };
 
   let styleroot = document.querySelector(':root');
@@ -35,10 +39,18 @@ document.addEventListener('DOMContentLoaded', () => {
     createWall();
   }
 
-   function ballCatchDesk(){
-    setStyleProperty('--Leftball',`${ballphisycs.x += ballphisycs.vx}px`)
-    setStyleProperty('--Topball',`${ballphisycs.x += ballphisycs.vy}px`)
+function ballCatchDesk() {
+   if(collision(elements.desk.getBoundingClientRect(),elements.ball.getBoundingClientRect()))
+   {
+   ballphisycs.vx *= 1;
+   ballphisycs.vy *= -1;
+
+
    }
+    setStyleProperty('--Leftball', `${ballphisycs.x += ballphisycs.vx}px`);
+    setStyleProperty('--Topball', `${ballphisycs.y += ballphisycs.vy}px`);
+}
+
    function mouseMove() {
     elements.Game.addEventListener('mousemove', (e) => {
       setStyleProperty('--LeftDesk', `${e.offsetX}px`);
@@ -61,12 +73,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
   function collision(rect1, rect2) {
-  return (
+  if(
     rect1.x < rect2.x + rect2.width &&
     rect1.x + rect1.width > rect2.x &&
     rect1.y < rect2.y + rect2.height &&
     rect1.y + rect1.height > rect2.y
-  );
+   
+  ){
+ return true }
+ else{
+  return false
+ };
 }
 
 });
